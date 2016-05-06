@@ -1,4 +1,7 @@
 var path = require('path')
+
+var freemarker = require('gulp-freemarker');
+
 var gulp = require('gulp');
 var del = require('del');
 var watchify = require('watchify');
@@ -7,13 +10,24 @@ var sources = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
-var freemarker = require('gulp-freemarker');
 var assign = require('lodash.assign');
 var browerSync = require('browser-sync');
+var changed = require('gulp-changed');
+var rename = require('gulp-rename');
+var md5 = require('gulp-md5');
+
+var jsmini = require('gulp-uglify');
+var cssmini = require('gulp-clean-css');
+var less = require('gulp-less');
+
+
+
 
 var BASE_PATH = __dirname + '/';
 var PAGES_PATH = 'WEB-INF/pages';
 var OUT_PATH = 'output';
+
+
 var config = {
     paths: {
         base: BASE_PATH,
@@ -27,7 +41,7 @@ var config = {
 /*
 
 var _browerifyConfig = {
-    entries: ['./output/index.html'],
+    entries: [''],
     debug: true
 }
 
@@ -64,11 +78,17 @@ gulp.task('clean-ftl', function (cb) {
 
 gulp.task('praseFTL', function () {
     gulp.src(config.paths.mock)
+        .pipe(changed(config.paths.output))
         .pipe(freemarker({
             viewRoot: config.paths.viewRoot,
             options: {}
         }))
         .pipe(gulp.dest(config.paths.output));
+})
+
+gulp.task('js',function () {
+   gulp.src()
+       .pipe()
 })
 
 gulp.task('watch', function () {
