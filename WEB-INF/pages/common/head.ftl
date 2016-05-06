@@ -3,9 +3,4 @@
     <meta charset="utf-8">
     <title>Freemark.js 测试</title>
 </head>
-<body><h1>Hello Hello World</h1>
-<footer>
-    <h5>I am the footer </h5>
-</footer>
-</body>
-</html>
+<body>
