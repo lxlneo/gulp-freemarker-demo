@@ -35,7 +35,7 @@ var config = {
         pages: PAGES_PATH,
         viewRoot:path.join(BASE_PATH, PAGES_PATH).replace(/\\/g, '/'),
         ftl: './' + PAGES_PATH + '/**/*.ftl',
-        mock: './mock/*.json'
+        mock: './mock/**/*.json'
     }
 }
 /*
@@ -72,7 +72,7 @@ gulp.task('clean-output', function (cb) {
 
 gulp.task('clean-ftl', function (cb) {
     del([
-        config.paths.output + '/**/*.ftl'
+        config.paths.output + '/**/*.HTML'
     ], cb)
 })
 
@@ -101,7 +101,7 @@ gulp.task('server',function () {
             baseDir:'output'
         }
     })
-    gulp.watch(['*.html'],{cwd:'output'},browerSync.reload);
+    gulp.watch(['*/**/*.html'],{cwd:'output'},browerSync.reload);
 })
 
 gulp.task('default', ['clean-output', 'watch','praseFTL','server']);

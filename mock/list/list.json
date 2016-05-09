@@ -1,5 +1,5 @@
 {
-  "file": "list.ftl",
+  "file": "list/list.ftl",
   "data": {
     "list": [
       {

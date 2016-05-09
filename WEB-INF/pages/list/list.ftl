@@ -1,4 +1,4 @@
-<#include "common/head.ftl" />
+<#include "../common/head.ftl" />
 <h1>the list loop</h1>
 <ul>
 <#list list  as item>
@@ -9,4 +9,4 @@
     </#if>
 </#list>
 </ul>
-<#include "common/foot.ftl" />
+<#include "../common/foot.ftl" />
